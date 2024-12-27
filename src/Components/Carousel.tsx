@@ -5,7 +5,7 @@ const Carousel: React.FC = () => {
     'https://i.postimg.cc/5tWGnmsM/nature1.jpg',
     'https://i.postimg.cc/02qVgNpp/nature2.jpg',
     'https://i.postimg.cc/tCt29H58/car3.jpg',
-    'https://i.postimg.cc/tCt29H58/car3.jpg',
+    'https://i.postimg.cc/ydGyYrFw/30356017-7694497.jpg',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,13 +38,13 @@ const Carousel: React.FC = () => {
 
   useEffect(() => {
     startAutoSlide();
-    return stopAutoSlide; // Clean up the interval on unmount
+    return stopAutoSlide; 
   }, [currentIndex]);
 
   return (
-    <div className="relative overflow-hidden w-full h-[70vh]">
+    <div className="relative overflow-hidden w-full h-[50vh]">
       <div
-        className="flex transition-transform duration-500 ease-in-out"
+        className="flex transition-transform duration-500 ease-in-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, index) => (
@@ -77,16 +77,6 @@ const Carousel: React.FC = () => {
       >
         &#8250;
       </button>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'
-            }`}
-          ></span>
-        ))}
-      </div>
     </div>
   );
 };
